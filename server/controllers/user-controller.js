@@ -70,7 +70,7 @@ router.delete('/logout', (req, res) => {
     .then(async (user) => {
       if (!user) { res.status(404).send('User not found.'); }
       await user.logout();
-      res.json(user);
+      res.status(204).send();
     })
     .catch((err) => { res.send(err.errors); });
 });
